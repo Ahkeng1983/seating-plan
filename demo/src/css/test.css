@@ -1,0 +1,35 @@
+  .left {
+      width: 400px;
+      border: 2px solid black;
+      height: 500px;
+      float: left;
+    }
+    
+    .left div {
+      width: 100px;
+      height: 100px;
+      float: left;
+      border: 1px solid pink;
+    }
+    // 清除浮动
+    .clear {
+      zoom: 1;
+    }
+    /*==for IE6/7 Maxthon2==*/
+    
+    .clear:after {
+      clear: both;
+      content: '.';
+      display: block;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+    /*==for FF/chrome/opera/IE8==*/
+    
+    .right {
+      border: 2px solid black;
+      float: left;
+      width: 700px;
+      height: 500px;
+    }
