@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .left {
+      width: 400px;
+      border: 2px solid black;
+      height: 500px;
+      float: left;
+    }
+    
+    .left div {
+      width: 100px;
+      height: 100px;
+      float: left;
+      border: 1px solid pink;
+    }
+    
+    .clear {
+      zoom: 1;
+    }
+    /*==for IE6/7 Maxthon2==*/
+    
+    .clear:after {
+      clear: both;
+      content: '.';
+      display: block;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+    /*==for FF/chrome/opera/IE8==*/
+    
+    .right {
+      border: 2px solid black;
+      float: left;
+      width: 700px;
+      height: 500px;
+    }
+  </style>
+  <link rel="stylesheet" href="CSS/jquery-ui.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="left clear">
+      <h3>请选择座位布局</h3>
+      <input type="button" value="U型" id='1'>
+      <input type="button" value="圆型" id='2'>
+      <input type="button" value="舞台型" id='3'>
+      <br>
+      <input type="text"><span>行数</span>
+      <br>
+      <input type="text"><span>段数</span>
+      <br>
+      <br>
+      <div class="box1">
+        拖动测试1
+      </div>
+      <div class="box2">
+        拖动测试2
+      </div>
+      <div class="box3">
+        拖动测试3
+      </div>
+      <div class="box3">
+        拖动测试4
+      </div>
+      <div class="box3">
+        拖动测试5
+      </div>
+      <div class="box3">
+        拖动测试6
+      </div>
+    </div>
+    <div class="right">
+    </div>
+  </div>
+  <script src='JS/jquery-1.12.4.js'></script>
+  <script src='JS/jquery-ui.js'></script>
+  <script>
+    // 封装获取随机颜色
+    function getColor() {
+      var r = parseInt(Math.random() * 255);
+      var g = parseInt(Math.random() * 255);
+      var b = parseInt(Math.random() * 255);
+      return 'rgb(' + r + ',' + g + ',' + b + ')'
+    }
+    // 封装生成盒子
+      function getBox(num){
+      for (var i = 0; i < num; i++) {
+          var $boxmin = $('<div></div>')
+          $('.right').append($boxmin)
+          $boxmin.css({
+            'width': '100px',
+            'height': '100px',
+            'backgroundColor': getColor()
+          })
+          // 指定盒子的位置
+          
+        }
+    }
+    $(function () {
+      $('.box2,.box1,.box3').css('backgroundColor', getColor());
+      // $('.box3').css('backgroundColor', getColor());
+      // 拖动
+      $('.box1').draggable();
+      $('.box2').draggable();
+      $('.box3').draggable();
+      // 点击按钮动态生成效果
+      $('#1').on('click', function () {
+        // 点击后在指定区域生成指定个数的盒子
+        console.log('1111');
+        getBox(6);
+      })
+    })
+  </script>
+</body>
+
+</html>
