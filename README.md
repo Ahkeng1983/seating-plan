@@ -4,5 +4,10 @@
   + gulp-concat 合并文件
   + gulp-uglify 压缩文件
   + gulp-less 编译css代码
-## 文件目录结构
+  
+## 实现方案
+1. canvas
+2. SVG
+3. 第三方库或者工具（D3 白鹭）
+
 
